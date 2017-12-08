@@ -19,6 +19,18 @@ Array.prototype._find = function(callback) {
     }
 }
 
+console.log(`oh! yeah!!`);
+
+Array.prototype._concat = function() {
+    console.log(arguments);
+    Array.from(arguments).forEach(arr => {
+        arr.forEach(item => {
+            this.push(item);
+        })
+    })
+    return this;
+}
+
 const arr = [{
     a: 1,
     b: 2,
@@ -33,4 +45,5 @@ const arr = [{
 const newArr = arr._map((item, index, arr) => item * index);
 
 const fined = arr._find((item, index, arr) => item.a === 5);
-console.log(fined);
+
+const newArr1 = arr._concat(['foo', 'bar', 'qux'], [{a: 7, b: 8}]);
